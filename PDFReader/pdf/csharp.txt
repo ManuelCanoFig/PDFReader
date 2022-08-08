@@ -1,0 +1,34 @@
+8/8/22, 12:05 AM How to write to a text ﬁle - C# Programming Guide | Microsoft Docs
+} 
+The preceding source code example:
+Instantiates a string array with three values.
+Instantiates a StreamWriter with a file path of WriteLines2.txt as a using declaration.
+Iterates through all the lines.
+Conditionally awaits a call to StreamWriter.WriteLineAsync(String), which writes the
+line to the file when the line doesn't contain " S e c o n d ".
+Append text to an existing file
+＝
+C#
+Copy
+class StreamWriterTwo 
+{ 
+    public static async Task ExampleAsync() 
+    { 
+        using StreamWriter file = new("WriteLines2.txt", append: true); 
+        await file.WriteLineAsync("Fourth line"); 
+    } 
+} 
+The preceding source code example:
+Instantiates a string array with three values.
+Instantiates a StreamWriter with a file path of WriteLines2.txt as a using declaration,
+passing in t r u e to append.
+Awaits a call to StreamWriter.WriteLineAsync(String), which writes the string to the file
+as an appended line.
+Exceptions
+The following conditions may cause an exception:
+InvalidOperationException: The file exists and is read-only.
+PathTooLongException: The path name may be too long.
+IOException: The disk may be full.
+There are additional conditions that may cause exceptions when working with the file
+system it is best to program defensively
+https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/ﬁle-system/how-to-write-to-a-text-ﬁle 3/5
